@@ -24,22 +24,21 @@
                 <tr>
                     <th>id</th>
                     <th>タイトル</th>
-                    <th>作成日</th>
+                    <th>更新日</th>
                     <th class="btn-table"></th>
                     <th class="btn-table"></th>
                 </tr>
                 @foreach ($blogs as $blog)
                 <tr>
                     <td>{{ $blog->id }}</td>
-                    <td><a href="">{{ $blog->title }}</a></td>
-                    <td>{{ $blog->created_at }}</td>
-                    <td><button class="btn editBtn">編集</button></td>
+                    <td><a href="/comment/{{ $blog->id }}">{{ $blog->title }}</a></td>
+                    <td>{{ $blog->updated_at }}</td>
+                    <td><button  class="btn editBtn" onclick="onClickEdit('{{ route('showEdit', ['id' => $blog->id]) }}')">編集</button></td>
                     <td><button class="btn deleteBtn">削除</button></td>
                 </tr>
                 @endforeach
             </table>
         </div>
-        <div></div>
     </div>
     
     <script>
@@ -47,6 +46,15 @@
             var res = confirm("追加画面へ移動しますか？");
             if( res == true ) {
                 window.location='{{ route('showAdd') }}';
+            }
+            else {
+                return false;
+            }
+        }
+        function onClickEdit (url){
+            var res = confirm("編集画面へ移動しますか？");
+            if( res == true ) {
+                window.location.href = url;
             }
             else {
                 return false;

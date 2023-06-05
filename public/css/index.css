@@ -55,6 +55,7 @@ body {
 /* テーブル */
 .position-table {
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .show-blogTable {

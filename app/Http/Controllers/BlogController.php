@@ -60,4 +60,36 @@ class BlogController extends Controller
         return redirect(route('home'));
 
     }
+
+    /**
+     * ブログ閲覧画面を表示する
+     * @param $id
+     * @return view
+     */
+    public function ShowCommentBlog($id) {
+        $blog = Blogs::find($id);
+
+        if(is_null($blog)) {
+            session()->flash('err_msg', 'データを取得できませんでした。');
+            return redirect(route('home'));
+        }
+
+        return view('blog.comment',['blog'=>$blog]);
+    }
+
+    /**
+     * 編集画面へ遷移する
+     * @param $id
+     * @return view
+     */
+    public function ShowEditBlog($id) {
+        $blog = Blogs::find($id);
+
+        if (is_null($blog)) {
+            session()->flash('err_msg', 'データを取得できませんでした。');
+            redirect(route('home'));
+        }
+
+        return view('blog.editBlog', ['blog'=>$blog]);
+    }
 }

@@ -20,5 +20,7 @@ Route::get('/', 'App\Http\Controllers\BlogController@showHome')->name('home');
 Route::post('/store', 'App\Http\Controllers\BlogController@exeStore')->name('store');
 // 追加画面
 Route::get('/add', 'App\Http\Controllers\BlogController@ShowAddBlog')->name('showAdd');
-
-
+// コメント閲覧画面
+Route::get('/comment/{id}', 'App\Http\Controllers\BlogController@ShowCommentBlog')->name('showComment');
+// 編集画面
+Route::get('/edit/{id}', 'App\Http\Controllers\BlogController@ShowEditBlog')->name('showEdit');
