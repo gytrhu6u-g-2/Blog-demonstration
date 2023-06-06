@@ -24,3 +24,5 @@ Route::get('/add', 'App\Http\Controllers\BlogController@ShowAddBlog')->name('sho
 Route::get('/comment/{id}', 'App\Http\Controllers\BlogController@ShowCommentBlog')->name('showComment');
 // 編集画面
 Route::get('/edit/{id}', 'App\Http\Controllers\BlogController@ShowEditBlog')->name('showEdit');
+// データ更新
+Route::post('/update', 'App\Http\Controllers\BlogController@exeUpdate')->name('update');

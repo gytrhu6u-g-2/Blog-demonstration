@@ -92,4 +92,29 @@ class BlogController extends Controller
 
         return view('blog.editBlog', ['blog'=>$blog]);
     }
+
+    /**
+     * 更新する
+     * @param Request
+     * @return view
+     */
+    public function exeUpdate(Request $request) {
+        $input = $request->all();
+
+        DB::beginTransaction();
+        try {
+            $blog = Blogs::find($input['id']);
+            $blog->fill([
+                'title' => $input['title'],
+                'comment' => $input['comment'],
+            ]);
+            $blog->save();
+            DB::commit();
+        }catch(\Exception $e) {
+            abort('500');
+            DB::rollback();
+        }
+        session()->flash('success_msg','データの更新に成功しました。');
+        return redirect(route('home'));
+    }
 }

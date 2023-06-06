@@ -23,7 +23,7 @@
             </div>
         @endif
         <div class="container-inner">
-            <form method="POST" action="{{ route('store') }}">
+            <form method="POST" action="{{ route('update', ['id' => $blog->id]) }}">
                 @csrf
                     <div class="space">
                         <span class="title-text-position">タイトル</span>
@@ -31,9 +31,7 @@
                     </div>
                     <div class="space">
                         <span class="comment-position">コメント</span>
-                        <textarea class="comment" name="comment" cols="60" rows="10">
-                            {{ $blog->comment }}
-                        </textarea>
+                        <textarea class="comment" name="comment" cols="60" rows="10">{{ $blog->comment }}</textarea>
                     </div>
                 <div class="btn-position">
                     <button type="submit" class="btn addBtn" onclick="return onClickUpdate();">更新</button>
@@ -47,7 +45,8 @@
         function onClickUpdate (url){
             var res = confirm("更新します。よろしいですか？");
             if( res == true ) {
-                window.location.href=url;
+                // window.location.href=url;
+                return true;
             }
             return false;
         }
