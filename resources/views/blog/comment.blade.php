@@ -14,7 +14,11 @@
             <button type="button" class="btn backBtn" onclick="location.href='{{ route('home') }}'">戻る</button>
         </div>
         @if (session('err_msg'))
-            <p>{{ session('err_msg') }}</p>
+            <div class="err_msg-container">
+                <div class="err_msg-validation">
+                    <p class="err_msg">{{ session('err_msg') }}</p>
+                </div>
+            </div>
         @endif
         <div class="position-table">
             <table class="show-blogTable">

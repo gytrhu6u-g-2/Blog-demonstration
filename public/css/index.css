@@ -18,6 +18,53 @@ body {
     border-radius: 10px;
 }
 
+/* 成功バリデーション */
+.succecc_msg-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+.success_msg-validation {
+    width: 400px;
+    height: 100px;
+    border: black 1px solid;
+    background-color: #FFFF11;
+    position: relative;
+    text-align: center;
+}
+.success_msg {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 失敗バリデーション */
+.err_msg-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+.err_msg-validation {
+    width: 400px;
+    height: 100px;
+    border: black 1px solid;
+    background-color: #FF0000;
+    position: relative;
+    text-align: center;
+}
+.err_msg {
+    width: 100%;
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* [ home.blade.php ] */
 
 /* 追加ボタン */

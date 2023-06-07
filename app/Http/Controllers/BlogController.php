@@ -117,4 +117,28 @@ class BlogController extends Controller
         session()->flash('success_msg','データの更新に成功しました。');
         return redirect(route('home'));
     }
+
+    /**
+     * 削除する
+     * @param Request
+     * @return view
+     */
+    public function exeDelete($id) {
+        
+        if(empty($id)){
+            session()->flash('err_msg', 'データが存在しません。');
+            return redirect(route('home'));
+        }
+        
+        try {
+            $delete = Blogs::find($id);
+            $delete->destroy($id);
+        }catch(\Exception $e) {
+            abort(500);
+        }
+
+        session()->flash('success_msg', 'データの削除に成功しました。');
+        return redirect(route('home'));
+
+    }
 }

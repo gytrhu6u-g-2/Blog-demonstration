@@ -26,3 +26,5 @@ Route::get('/comment/{id}', 'App\Http\Controllers\BlogController@ShowCommentBlog
 Route::get('/edit/{id}', 'App\Http\Controllers\BlogController@ShowEditBlog')->name('showEdit');
 // データ更新
 Route::post('/update', 'App\Http\Controllers\BlogController@exeUpdate')->name('update');
+// データ削除
+Route::post('/delete/{id}', 'App\Http\Controllers\BlogController@exeDelete')->name('delete');

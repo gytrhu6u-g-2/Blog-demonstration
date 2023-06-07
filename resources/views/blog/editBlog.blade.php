@@ -17,7 +17,11 @@
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <div class="err_msg-container">
+                            <div class="err_msg-validation">
+                                <li class="err_msg">{{ $error }}</li>
+                            </div>
+                        </div>
                     @endforeach
                 </ul>
             </div>
@@ -42,10 +46,9 @@
         </div>
     </div>
     <script>
-        function onClickUpdate (url){
+        function onClickUpdate (){
             var res = confirm("更新します。よろしいですか？");
             if( res == true ) {
-                // window.location.href=url;
                 return true;
             }
             return false;
